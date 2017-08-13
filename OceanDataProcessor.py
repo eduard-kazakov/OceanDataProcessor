@@ -8,7 +8,10 @@ class OceanDataProcessor():
     NODATA = '-999'
     DEPTH_LIMIT = 50
     supported_data_types = ['WOD']
-
+    
+    projection = '+proj=laea +lat_0=90 +lon_0=0 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs'
+    grid = {'xmin':-5000000,'xmax':5000000, 'ymin':-5000000, 'ymax': 5000000, 'xstep': 4000, 'ystep': 4000}
+    
     def __init__(self, data_type, data_source, delimeter, year_min, year_max, lat_min, lat_max, lon_min, lon_max):
         if data_type not in self.supported_data_types:
             print ('Data type is not supported')
